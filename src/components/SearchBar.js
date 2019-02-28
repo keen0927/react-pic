@@ -7,13 +7,9 @@ export class SearchBar extends Component {
 
     onFormSubmit = (event) =>  {
       event.preventDefault();
-      console.log(this.state.term)
+      this.props.onSubmit(this.state.term);
     }
 
-    // onFormSubmit(event) {
-    //   event.preventDefault();
-    //   console.log(this.state.term);
-    // }
     handlerChange = (event) => {
       this.setState({
         term: event.target.value
@@ -21,7 +17,6 @@ export class SearchBar extends Component {
     }
 
   render() {
-    console.log(this.state.term);
     return (
       <div className="ui segment">
           <form onSubmit={this.onFormSubmit} className="ui form">
@@ -32,7 +27,6 @@ export class SearchBar extends Component {
                 type="text" 
                 value={this.state.term}
                 onChange={this.handlerChange}
-                
               />
             </div>
           </form>
